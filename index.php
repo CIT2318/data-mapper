@@ -12,8 +12,14 @@ echo "<p>".$cert->getName()." - ".$cert->getDescription()."</p>";
 
 
 //1) Write some PHP code that will create an instance of FilmMapper and then use this object to retrieve the 3rd film from the database table. Display the title and age of this film.
-//2) Write some PHP code that will display a list of all the certificates.
+
+
+//2) Again using the CertificateMapper, write some PHP code that will display a list of all the certificates.
+
+
 //3) Write some PHP code that will display a list of all the films.
+
+
 //4) Have a look at the FilmMapper and CertificateMapper classes, they have a lot in common. Create an abstract Mapper class that both FilmMapper and CertificateMapper will inherit from. This week's lecture provides a similar example. 
 
 //Harder questions
@@ -24,33 +30,11 @@ echo "<p>".$cert->getName()." - ".$cert->getDescription()."</p>";
 */
 
 /*
-6) Can you implement insert methods in the Mapper classes. The insert method will accept an object as an argument. It will then run an SQL statement to insert a row using this object's properties. You will then need to use lastInsertId() to get the id number of the new row, and assign this to the object that has been inserted.
+6) Can you implement insert methods in the Mapper classes. The insert method will accept an object as an argument. It will then run an SQL statement to insert a row using this object's properties. You will then need to use lastInsertId() to get the id number of the new row, and assign this to the object that has been inserted e.g.
 
- 
-
+$newCertId = $this->conn->lastInsertId();
+$certObject->setId($newCertId);
 */
-// $film = $filmMapper->find(10);
-
-// echo "<p>".$film->getTitle()."</p>";
-
-
-// $films = $filmMapper->findAll();
-// foreach($films as $film)
-// {
-// 	echo "<p>".$film->getTitle()." ".$film->getAge()."</p>";
-// }
-
-
-// $certMapper=new CertificateMapper(DbConnect::getConnection());
-// $certs = $certMapper->findAll();
-// foreach($certs as $cert)
-// {
-// 	echo "<p>".$cert->getName()."</p>";
-// }
-
-// $cert = $certMapper->find(3);
-// echo "<p>".$cert->getName()."</p>";
-
 
 
 ?>

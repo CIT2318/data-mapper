@@ -2,6 +2,7 @@
 namespace SimpleFilmApp\Mapper;
 use \PDO;
 use SimpleFilmApp\Domain\Certificate;
+
 class CertificateMapper {
 	private $conn;
 	function __construct($conn)
