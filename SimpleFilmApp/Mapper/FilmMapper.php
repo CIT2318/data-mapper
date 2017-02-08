@@ -54,7 +54,7 @@ class FilmMapper extends Mapper{
 		$certObject = $certMapper->makeObject($filmArray);
 		//now make the film
 		$filmObject = new Film($filmArray["title"], $filmArray["year"], $filmArray["duration"]);
-		$filmObject->setId($filmArray["title"]);
+		$filmObject->setId($filmArray["id"]);
 		//assign the certificate to the film
 		$filmObject->setCertificate($certObject);
 		return $filmObject;

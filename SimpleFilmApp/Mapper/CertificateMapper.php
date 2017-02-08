@@ -3,11 +3,6 @@ namespace SimpleFilmApp\Mapper;
 use \PDO;
 use SimpleFilmApp\Domain\Certificate;
 class CertificateMapper extends Mapper{
-	public function findAll(){}
-	public function save($obj){}
-	public function delete($obj){}
-	public function update($obj){}
-
 	public function find($id){
 		$stmt = $this->conn->prepare("SELECT * FROM certificates WHERE certificates.id = :id");
 		$stmt->bindValue(':id',$id);
@@ -15,6 +10,15 @@ class CertificateMapper extends Mapper{
 		$certificateArray = $stmt->fetch();
 		$certObject=$this->makeObject($certificateArray);
 		return $certObject;
+	}
+	public function findAll(){
+		$rows = $this->conn->query("SELECT * FROM certificates");
+		$arrOfCerts=[];
+		foreach($rows as $certArray)
+		{
+			$arrOfCerts[] = $this->makeObject($certArray);
+		}
+		return $arrOfCerts;
 	}
 	public function insert($certObject){
 		$stmt = $this->conn->prepare("INSERT INTO certificates (id, name, description) 

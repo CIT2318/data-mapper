@@ -14,14 +14,24 @@ echo "<p>".$cert->getName()." - ".$cert->getDescription()."</p>";
 
 $filmMapper=new FilmMapper(DbConnect::getConnection());
 $film = $filmMapper->find(3);
-echo "<p>".$film->getTitle()." - ".$cert->getAge()."</p>";
+echo "<p>".$film->getTitle()." - ".$film->getAge()." years old.</p>";
 
 
 //2) Again using the CertificateMapper, write some PHP code that will display a list of all the certificates.
 
+$certs = $certMapper->findAll();
+foreach($certs as $cert)
+{
+	echo "<p>".$cert->getName()." - ".$cert->getDescription()."</p>";
+}
 
 //3) Write some PHP code that will display a list of all the films.
 
+$films = $filmMapper->findAll();
+foreach($films as $film)
+{
+	echo "<p>".$film->getTitle()." - ".$film->getAge()." years old.</p>";
+}
 
 //4) Have a look at the FilmMapper and CertificateMapper classes, they have a lot in common. Create an abstract Mapper class that both FilmMapper and CertificateMapper will inherit from. This week's lecture provides a similar example. 
 
