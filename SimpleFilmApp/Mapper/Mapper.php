@@ -10,7 +10,7 @@ abstract class Mapper{
 	}
 	abstract public function find($id);
 	abstract public function findAll();
-	abstract public function insert($obj);
+	//abstract public function insert($obj);
 	//abstract public function delete($obj);
 	//abstract public function update($obj);
 	abstract public function makeObject(Array $arr);
