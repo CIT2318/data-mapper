@@ -29,12 +29,6 @@ $certMapper=new CertificateMapper(DbConnect::getConnection());
 $cert = $certMapper->find(4);
 echo "<p>".$cert->getName()."</p>";
 
-// $newFilm = new Film("q","1990",100);
-// echo "<p>".$newFilm->getTitle()."</p>";
-// $newFilm->setCertificate($cert);
-// echo "<p>".$newFilm->getCertificate()->getId()."</p>";
-// $filmMapper->insert($newFilm);
-// echo "<p>".$newFilm->getId()."</p>";
 
 $newCert = new Certificate("w","w");
 echo "<p>".$newCert->getName()."</p>";
