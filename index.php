@@ -1,17 +1,30 @@
-<?php
+<?php 
 use SimpleFilmApp\DbConnect;
 use SimpleFilmApp\Domain\Film;
 use SimpleFilmApp\Domain\Certificate;
 use SimpleFilmApp\Mapper\FilmMapper;
 use SimpleFilmApp\Mapper\CertificateMapper;
-require_once("SimpleFilmApp/Autoload.php");
+
+require_once("SimpleFilmApp/DbConnect.php");
+require_once("SimpleFilmApp/Domain/film.php");
+require_once("SimpleFilmApp/Domain/certificate.php");
+require_once("SimpleFilmApp/Mapper/Mapper.php");
+require_once("SimpleFilmApp/Mapper/CertificateMapper.php");
+require_once("SimpleFilmApp/Mapper/FilmMapper.php");
+
+
+
+//require_once("SimpleFilmApp/Autoload.php");
 
 $certMapper=new CertificateMapper(DbConnect::getConnection());
 $cert = $certMapper->find(1);
 echo "<p>".$cert->getName()." - ".$cert->getDescription()."</p>";
 
-
 //1) Write some PHP code that will create an instance of FilmMapper and then use this object to retrieve the 3rd film from the database table. Display the title and age of this film.
+
+$filmMapper=new FilmMapper(DbConnect::getConnection());
+$film = $filmMapper->find(3);
+echo "<p>".$film->getTitle()." - ".$film->getAge()." years old.</p>";
 
 
 //2) Again using the CertificateMapper, write some PHP code that will display a list of all the certificates.
